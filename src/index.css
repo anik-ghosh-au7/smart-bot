@@ -12,6 +12,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+	position: relative;
+}
+
 .App {
 	padding: 10px;
 }
