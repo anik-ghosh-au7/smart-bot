@@ -5,6 +5,7 @@ import IdleModel from './models/IdleModel';
 import VoiceController from './components/VoiceController';
 import { MODEL_PATHS } from './constants';
 import DanceModel from './models/DanceModel';
+import FightModel from './models/FightModel';
 
 export default function App() {
 	const [modelPath, setModelPath] = useState(MODEL_PATHS.IDLE);
@@ -27,6 +28,9 @@ export default function App() {
 					)}
 					{modelPath === MODEL_PATHS.DANCE && (
 						<DanceModel position={[0.025, -0.9, 0]} />
+					)}
+					{modelPath === MODEL_PATHS.FIGHT && (
+						<FightModel position={[0.025, -0.9, 0]} />
 					)}
 				</Suspense>
 				<OrbitControls />
