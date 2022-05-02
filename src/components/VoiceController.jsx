@@ -21,7 +21,7 @@ const VoiceController = ({ setModelPath, getTranscript = false }) => {
 
 	const commands = [
 		{
-			command: `bot *`,
+			command: `anik *`,
 			callback: (cmd) => {
 				voiceCommandHandler(cmd);
 				resetTranscript();
