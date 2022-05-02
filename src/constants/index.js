@@ -5,4 +5,5 @@ export const MODEL_PATHS = {
 
 export const COMMANDS = {
 	DANCE: 'dance',
+	STOP: 'stop',
 };

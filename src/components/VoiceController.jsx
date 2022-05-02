@@ -11,6 +11,9 @@ const VoiceController = ({ setModelPath, getTranscript = false }) => {
 			case COMMANDS.DANCE:
 				setModelPath(MODEL_PATHS.DANCE);
 				break;
+			case COMMANDS.STOP:
+				setModelPath(MODEL_PATHS.IDLE);
+				break;
 			default:
 				break;
 		}
