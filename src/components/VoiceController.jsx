@@ -9,7 +9,6 @@ const VoiceController = ({ setModelPath, getTranscript = false }) => {
 		console.log('command ==>> ', cmd);
 		switch (cmd) {
 			case COMMANDS.DANCE:
-				console.log('dancing');
 				setModelPath(MODEL_PATHS.DANCE);
 				break;
 			default:
