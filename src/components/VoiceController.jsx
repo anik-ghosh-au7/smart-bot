@@ -2,13 +2,26 @@ import { useEffect } from 'react';
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition';
+import { COMMANDS, MODEL_PATHS } from '../constants';
 
-const VoiceController = ({ getTranscript }) => {
+const VoiceController = ({ setModelPath, getTranscript = false }) => {
+	const voiceCommandHandler = (cmd) => {
+		console.log('command ==>> ', cmd);
+		switch (cmd) {
+			case COMMANDS.DANCE:
+				console.log('dancing');
+				setModelPath(MODEL_PATHS.DANCE);
+				break;
+			default:
+				break;
+		}
+	};
+
 	const commands = [
 		{
 			command: `anik *`,
 			callback: (cmd) => {
-				console.log('command ==>> ', cmd);
+				voiceCommandHandler(cmd);
 				resetTranscript();
 			},
 		},

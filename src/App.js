@@ -1,10 +1,13 @@
-import React, { Fragment, Suspense } from 'react';
+import React, { Fragment, Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import Model from './models/Model';
+import IdleModel from './models/IdleModel';
 import VoiceController from './components/VoiceController';
+import { MODEL_PATHS } from './constants';
+import DanceModel from './models/DanceModel';
 
 export default function App() {
+	const [modelPath, setModelPath] = useState(MODEL_PATHS.IDLE);
 	return (
 		<Fragment>
 			<Canvas
@@ -19,11 +22,16 @@ export default function App() {
 				<ambientLight intensity={0.1} />
 				<directionalLight intensity={0.4} />
 				<Suspense fallback={null}>
-					<Model position={[0.025, -0.9, 0]} />
+					{modelPath === MODEL_PATHS.IDLE && (
+						<IdleModel position={[0.025, -0.9, 0]} />
+					)}
+					{modelPath === MODEL_PATHS.DANCE && (
+						<DanceModel position={[0.025, -0.9, 0]} />
+					)}
 				</Suspense>
 				<OrbitControls />
 			</Canvas>
-			<VoiceController />
+			<VoiceController setModelPath={setModelPath} />
 		</Fragment>
 	);
 }
