@@ -7,7 +7,7 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 
 export default function Model({ ...props }) {
 	const group = useRef();
-	const { nodes, materials, animations } = useGLTF('/model.glb');
+	const { nodes, materials, animations } = useGLTF('/model-idle.glb');
 	const { actions } = useAnimations(animations, group);
 	useEffect(() => {
 		actions['Armature|mixamo.com|Layer0'].play();
@@ -91,4 +91,4 @@ export default function Model({ ...props }) {
 	);
 }
 
-useGLTF.preload('/model.glb');
+useGLTF.preload('/model-idle.glb');

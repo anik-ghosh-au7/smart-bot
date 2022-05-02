@@ -1,7 +1,7 @@
 import React, { Fragment, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import Model from './Model';
+import Model from './models/Model';
 import VoiceController from './components/VoiceController';
 
 export default function App() {
