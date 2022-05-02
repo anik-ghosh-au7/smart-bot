@@ -1,6 +1,6 @@
 export const MODEL_PATHS = {
-	IDLE: '/model-idle.glb',
-	DANCE: '/dance-model.glb',
+	IDLE: '/idleModel.glb',
+	DANCE: '/danceModel.glb',
 };
 
 export const COMMANDS = {
