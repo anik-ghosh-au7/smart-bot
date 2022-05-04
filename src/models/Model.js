@@ -26,7 +26,7 @@ export default function IdleModel({ modelAction, ...props }) {
 				actions['Armature.001|mixArmada'].play();
 				break;
 		}
-	});
+	}, [actions, modelAction]);
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
