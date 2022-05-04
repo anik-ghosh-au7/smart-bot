@@ -7,7 +7,6 @@ import { COMMANDS } from './constants';
 
 export default function App() {
 	const [modelAction, setModelAction] = useState(COMMANDS.IDLE);
-	console.log('modelAction ==>> ', modelAction);
 	return (
 		<Fragment>
 			<Canvas
@@ -22,7 +21,7 @@ export default function App() {
 				<ambientLight intensity={0.1} />
 				<directionalLight intensity={0.4} />
 				<Suspense fallback={null}>
-					<Model modelAction={modelAction} position={[0.025, -0.9, 0]} />
+					<Model action={modelAction} position={[0.025, -0.9, 0]} />
 				</Suspense>
 				<OrbitControls />
 			</Canvas>
