@@ -2,23 +2,13 @@ import { useEffect } from 'react';
 import SpeechRecognition, {
 	useSpeechRecognition,
 } from 'react-speech-recognition';
-import { COMMANDS, MODEL_PATHS } from '../constants';
+import { COMMANDS } from '../constants';
 
-const VoiceController = ({ setModelPath, getTranscript = false }) => {
+const VoiceController = ({ setModelAction, getTranscript = false }) => {
 	const voiceCommandHandler = (cmd) => {
 		console.log('command ==>> ', cmd);
-		switch (cmd) {
-			case COMMANDS.DANCE:
-				setModelPath(MODEL_PATHS.DANCE);
-				break;
-			case COMMANDS.FIGHT:
-				setModelPath(MODEL_PATHS.FIGHT);
-				break;
-			case COMMANDS.STOP:
-				setModelPath(MODEL_PATHS.IDLE);
-				break;
-			default:
-				break;
+		if (Object.values(COMMANDS).includes(cmd)) {
+			setModelAction(cmd);
 		}
 	};
 
