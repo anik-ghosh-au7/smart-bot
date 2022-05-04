@@ -1,13 +1,10 @@
-export const MODEL_PATHS = {
-	IDLE: '/idleModel.glb',
-	DANCE: '/danceModel.glb',
-	FIGHT: '/fightModel.glb',
-};
+export const MODEL_PATH = '/model.glb';
 
 export const COMMANDS = {
+	STOP: 'stop',
 	DANCE: 'dance',
 	FIGHT: 'fight',
-	STOP: 'stop',
+	IDLE: 'idle',
 };
 
 export const modelMaterialTypes = {
