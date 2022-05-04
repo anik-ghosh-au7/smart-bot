@@ -7,6 +7,12 @@ export const COMMANDS = {
 	IDLE: 'idle',
 };
 
+export const MODEL_ACTIONS = {
+	DANCE: 'dance',
+	FIGHT: 'fight',
+	IDLE: 'idle',
+};
+
 export const modelMaterialTypes = {
 	Wolf3D_Body: 'Wolf3D_Body',
 	Wolf3D_Glasses: 'Wolf3D_Glasses',
