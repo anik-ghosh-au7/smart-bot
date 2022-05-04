@@ -6,29 +6,29 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { COMMANDS, MODEL_ACTIONS, MODEL_PATH } from '../constants';
 
-export default function IdleModel({ action, ...props }) {
+const Model = ({ action, ...props }) => {
 	const group = useRef();
 	const { nodes, materials, animations } = useGLTF(MODEL_PATH);
-	const [currModelAction, setCurrModelAction] = useState(MODEL_ACTIONS.IDLE);
+	const [currentAction, setCurrentAction] = useState(MODEL_ACTIONS.IDLE);
 	const { actions } = useAnimations(animations, group);
 	useEffect(() => {
-		actions[currModelAction].fadeOut(0.2);
-		actions[currModelAction].stop();
+		actions[currentAction].fadeOut(0.2);
+		actions[currentAction].stop();
 		switch (action) {
 			case COMMANDS.DANCE:
-				setCurrModelAction(COMMANDS.DANCE);
+				setCurrentAction(COMMANDS.DANCE);
 				actions[COMMANDS.DANCE].play();
 				break;
 			case COMMANDS.FIGHT:
-				setCurrModelAction(COMMANDS.FIGHT);
+				setCurrentAction(COMMANDS.FIGHT);
 				actions[COMMANDS.FIGHT].play();
 				break;
 			default:
-				setCurrModelAction(COMMANDS.IDLE);
+				setCurrentAction(COMMANDS.IDLE);
 				actions[COMMANDS.IDLE].play();
 				break;
 		}
-	}, [actions, action, currModelAction]);
+	}, [actions, action, currentAction]);
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
@@ -106,6 +106,8 @@ export default function IdleModel({ action, ...props }) {
 			</group>
 		</group>
 	);
-}
+};
+
+export default Model;
 
 useGLTF.preload(MODEL_PATH);
